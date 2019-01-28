@@ -1,0 +1,9 @@
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\bin\Debug\netstandard2.0\AspNetCore.DynaX.deps.json
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\bin\Debug\netstandard2.0\AspNetCore.DynaX.dll
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\bin\Debug\netstandard2.0\AspNetCore.DynaX.pdb
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.csproj.CoreCompileInputs.cache
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.AssemblyInfoInputs.cache
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.AssemblyInfo.cs
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.dll
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.pdb
+D:\Working\Test\AspNetCore.DynaX\AspNetCore.DynaX\obj\Debug\netstandard2.0\AspNetCore.DynaX.csprojAssemblyReference.cache
