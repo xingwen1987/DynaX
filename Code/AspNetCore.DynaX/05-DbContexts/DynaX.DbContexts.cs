@@ -68,7 +68,7 @@ namespace AspNetCore.DynaX
                 switch (dataBaseInfo.Type)
                 {
                     case DataBaseType.SqlServer: optionsBuilder.UseSqlServer(dbConnectionString); break;
-                    case DataBaseType.MySql:
+                    case DataBaseType.MySql: optionsBuilder.UseMySql(dbConnectionString); break;
                     case DataBaseType.Oracle: optionsBuilder.UseOracle(dbConnectionString); break;
                     case DataBaseType.MongoDb:
                     case DataBaseType.PostgreSql:
