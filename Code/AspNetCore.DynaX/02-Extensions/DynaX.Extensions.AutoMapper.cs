@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Reflection;
 using AutoMapper;
@@ -61,8 +63,12 @@ namespace AspNetCore.DynaX
         {
             if (source == null) throw new ArgumentNullException(nameof(source));
             if (destination == null) throw new ArgumentNullException(nameof(destination));
-            var sourceType = Utils.GetType(source);
-            var destinationType = Utils.GetType(destination);
+            var sourceType = Utils.Types.GetType(source);
+            var destinationType = Utils.Types.GetType(destination);
+
+
+
+
             var map = GetMap(sourceType, destinationType);
             if (map != null) return Mapper.Map(source, destination);
             lock (Sync)

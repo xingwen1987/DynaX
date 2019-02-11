@@ -20,7 +20,7 @@ namespace AspNetCore.DynaX
             /// <returns></returns>
             public static T CreateInstance<T>(params object[] args) where T : class
             {
-                var constructorInfo = typeof(T).GetConstructor(Of(args));
+                var constructorInfo = typeof(T).GetConstructor(Types.Of(args));
                 return (T)constructorInfo?.GetReflector().Invoke(args);
                 //return (T)Activator.CreateInstance(typeof(T));
             }

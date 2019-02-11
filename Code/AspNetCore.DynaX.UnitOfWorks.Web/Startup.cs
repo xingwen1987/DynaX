@@ -53,7 +53,7 @@ namespace AspNetCore.DynaX.UnitOfWorks.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=TestUow}/{id?}");
+                    template: "{controller=Home}/{action=TestTypes}/{id?}");
             });
         }
     }

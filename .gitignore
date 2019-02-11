@@ -3,3 +3,14 @@
 ################################################################################
 
 /Version
+/Code/AspNetCore.DynaX.UnitOfWorks.Web/obj
+/Code/AspNetCore.DynaX.UnitOfWorks.Web/bin/Debug/netcoreapp2.2
+/Code/AspNetCore.DynaX.Logs.Web/obj
+/Code/AspNetCore.DynaX.Logs.Web/bin/Debug/netcoreapp2.2
+/Code/AspNetCore.DynaX.DbContexts.Web/obj
+/Code/AspNetCore.DynaX.DbContexts.Web/bin/Debug/netcoreapp2.2
+/Code/AspNetCore.DynaX.Caches.Web/obj
+/Code/AspNetCore.DynaX.Caches.Web/bin/Debug/netcoreapp2.2
+/Code/AspNetCore.DynaX/obj
+/Code/AspNetCore.DynaX/bin/Debug/netstandard2.0
+/Code/.vs
