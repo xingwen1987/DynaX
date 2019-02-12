@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 
@@ -29,6 +30,7 @@ namespace AspNetCore.DynaX
                 {
                     var type = source.GetType();
                     if (source is System.Collections.IEnumerable == false) return type;
+                    if (source is IDataReader) return typeof(IDataReader);
                     if (type.IsArray) return type.GetElementType();
                     var genericArgumentsTypes = type.GetTypeInfo().GetGenericArguments();
                     if (genericArgumentsTypes == null || genericArgumentsTypes.Length == 0)

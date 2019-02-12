@@ -5,6 +5,7 @@ using System.Data;
 using System.Globalization;
 using System.Reflection;
 using AutoMapper;
+using AutoMapper.Data;
 
 namespace AspNetCore.DynaX
 {
@@ -42,9 +43,22 @@ namespace AspNetCore.DynaX
         /// </summary>
         /// <typeparam name="TDestination">目标元素类型,范例：Sample,不要加List</typeparam>
         /// <param name="source">源集合</param>
-        public static List<TDestination> MapToList<TDestination>(this System.Collections.IEnumerable source)
+        public static List<TDestination> MapToList<TDestination>(this IEnumerable source)
         {
             return MapTo<List<TDestination>>(source);
+        }
+
+        /// <summary>
+        /// 将源集合映射到目标集合
+        /// </summary>
+        /// <typeparam name="TDestination">目标元素类型,范例：Sample,不要加List</typeparam>
+        /// <param name="source">源集合</param>
+        public static List<TDestination> MapToList<TDestination>(this DataTable source)
+        {
+            using (var dataReader = source.CreateDataReader())
+            {
+                return MapTo<List<TDestination>>(dataReader);
+            }
         }
 
         #endregion
@@ -65,19 +79,15 @@ namespace AspNetCore.DynaX
             if (destination == null) throw new ArgumentNullException(nameof(destination));
             var sourceType = Utils.Types.GetType(source);
             var destinationType = Utils.Types.GetType(destination);
-
-
-
-
             var map = GetMap(sourceType, destinationType);
-            if (map != null) return Mapper.Map(source, destination);
+            if (map != null) return source is IDataReader ? Mapper.Map<TDestination>(source) : Mapper.Map(source, destination);
             lock (Sync)
             {
                 map = GetMap(sourceType, destinationType);
-                if (map != null) return Mapper.Map(source, destination);
+                if (map != null) return source is IDataReader ? Mapper.Map<TDestination>(source) : Mapper.Map(source, destination);
                 InitMaps(sourceType, destinationType);
             }
-            return Mapper.Map(source, destination);
+            return source is IDataReader ? Mapper.Map<TDestination>(source) : Mapper.Map(source, destination);
         }
 
         /// <summary>
@@ -115,13 +125,21 @@ namespace AspNetCore.DynaX
             {
                 var maps = Mapper.Configuration.GetAllTypeMaps();
                 ClearConfig();
-                Mapper.Initialize(config => config.CreateMap(sourceType, destinationType));
+                Mapper.Initialize(config =>
+                {
+                    if(sourceType == typeof(IDataReader)) config.AddDataReaderMapping();
+                    config.CreateMap(sourceType, destinationType);
+                });
                 foreach (var map in maps)
                     Mapper.Configuration.RegisterTypeMap(map);
             }
             catch (InvalidOperationException)
             {
-                Mapper.Initialize(config => config.CreateMap(sourceType, destinationType));
+                Mapper.Initialize(config =>
+                {
+                    if (sourceType == typeof(IDataReader)) config.AddDataReaderMapping();
+                    config.CreateMap(sourceType, destinationType);
+                });
             }
         }
 

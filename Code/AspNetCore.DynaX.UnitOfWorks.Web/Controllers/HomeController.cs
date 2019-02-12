@@ -188,29 +188,6 @@ namespace AspNetCore.DynaX.UnitOfWorks.Web.Controllers
             return Json(testResult.ToSafeString());
         }
 
-        public async Task<IActionResult> TestTypes()
-        {
-            var obj1 = new
-            {
-                P1 = "foo",
-                P2 = 20,
-                P3 = "yo"
-            };
-
-            var obj2 = new
-            {
-                P1 = "bar",
-                P4= "SECRET!!",
-                P5 = "more stuff"
-            };
-
-            var result = DynaX.Utils.Types.Merger.Ignore(() => obj1.P1)
-                .Use(() => obj2.P1)
-                .Merge(obj1, obj2);
-
-            return Json(result);
-        }
-
         public IActionResult Privacy()
         {
             return View();

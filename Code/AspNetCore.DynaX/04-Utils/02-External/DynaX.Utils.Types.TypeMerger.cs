@@ -165,7 +165,7 @@ namespace AspNetCore.DynaX
                         return properties.ToArray();
                     }
 
-                    private static Type[] GetTypes(PropertyDescriptor[] pdc)
+                    private static Type[] GetTypes(IEnumerable<PropertyDescriptor> pdc)
                     {
                         return pdc.Select(type => type.PropertyType).ToArray();
                     }
