@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace AspNetCore.DynaX
@@ -24,6 +25,28 @@ namespace AspNetCore.DynaX
         public static string ToJson(this object source, string formatDate)
         {
             return source == null ? "{}" : JsonConvert.SerializeObject(source, new IsoDateTimeConverter { DateTimeFormat = formatDate });
+        }
+
+        /// <summary>
+        /// Json 字符串转换为 T
+        /// </summary>
+        /// <typeparam name="T">目标类型</typeparam>
+        /// <param name="source">Json字符串</param>
+        /// <returns></returns>
+        public static T ToObj<T>(this string source) where T :  class, new()
+        {
+            return JsonConvert.DeserializeObject<T>(source);
+        }
+
+        /// <summary>
+        /// Json 字符串转换为 List&lt;T&gt;
+        /// </summary>
+        /// <typeparam name="T">目标类型</typeparam>
+        /// <param name="source">Json字符串</param>
+        /// <returns></returns>
+        public static List<T> ToList<T>(this string source) where T : class, new()
+        {
+            return JsonConvert.DeserializeObject<List<T>>(source);
         }
     }
 }

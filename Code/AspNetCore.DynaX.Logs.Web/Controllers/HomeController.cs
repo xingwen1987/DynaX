@@ -50,19 +50,19 @@ namespace AspNetCore.DynaX.Logs.Web.Controllers
                 _file02Log.Fatal("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入日志02：Fatal！");
                 _file02Log.Verbose("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入日志02：Verbose！");
 
-                //_db01Log.Debug("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Debug！");
-                //_db01Log.Information("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Information！");
-                //_db01Log.Warning("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Warning！");
-                //_db01Log.Error("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Error！");
-                //_db01Log.Fatal("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Fatal！");
-                //_db01Log.Verbose("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Verbose！");
+                _db01Log.Debug("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Debug！");
+                _db01Log.Information("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Information！");
+                _db01Log.Warning("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Warning！");
+                _db01Log.Error("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Error！");
+                _db01Log.Fatal("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Fatal！");
+                _db01Log.Verbose("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库01：Verbose！");
 
-                //_db02Log.Debug("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Debug！");
-                //_db02Log.Information("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Information！");
-                //_db02Log.Warning("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Warning！");
-                //_db02Log.Error("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Error！");
-                //_db02Log.Fatal("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Fatal！");
-                //_db02Log.Verbose("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Verbose！");
+                _db02Log.Debug("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Debug！");
+                _db02Log.Information("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Information！");
+                _db02Log.Warning("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Warning！");
+                _db02Log.Error("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Error！");
+                _db02Log.Fatal("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Fatal！");
+                _db02Log.Verbose("ThreadId：" + Thread.CurrentThread.ManagedThreadId + "，写入数据库02：Verbose！");
             });
         }
 

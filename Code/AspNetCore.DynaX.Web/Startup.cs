@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +26,8 @@ namespace AspNetCore.DynaX.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // 添加 DynaX Web 组件注册
+            services.AddDynaX().Webs();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -48,6 +46,9 @@ namespace AspNetCore.DynaX.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            // 启用 DynaX 应用配置
+            app.UseDynaX().Webs();
 
             app.UseMvc(routes =>
             {
