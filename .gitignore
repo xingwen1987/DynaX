@@ -17,3 +17,6 @@
 /Code/AspNetCore.DynaX.Web/Properties
 /Code/AspNetCore.DynaX.Web/obj
 /Code/AspNetCore.DynaX.Web/bin/Debug/netcoreapp2.2
+/Code/AspNetCore.DynaX/bin/Release/netstandard2.0
+/Code/AspNetCore.DynaX.Myrmec/obj/Release
+/Code/AspNetCore.DynaX.Myrmec/bin/Release
