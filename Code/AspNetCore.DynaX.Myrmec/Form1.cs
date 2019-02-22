@@ -37,7 +37,7 @@ namespace AspNetCore.DynaX.Myrmec
             {
                 var fileName = fileInfo.FileFullName();
                 var fileBytes = fileInfo.ToFileBytes(20);
-                hexTable.Rows.Add(fileName, "[" + fileBytes.ToStr() + "]");
+                hexTable.Rows.Add(fileName, "[" + fileBytes.ToHexStr() + "]");
             }
             HexInfoList.DataSource = hexTable;
             HexInfoListClear.Enabled = true;
@@ -76,6 +76,11 @@ namespace AspNetCore.DynaX.Myrmec
         {
             HexInfoList.DataSource = null;
             HexInfoListClear.Enabled = false;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/xingwen1987");
         }
     }
 }

@@ -175,93 +175,189 @@ namespace AspNetCore.DynaX
 
         #region Audio
 
-        ///// <summary>
-        ///// 检验 Mp3 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsMp3(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "mp3" });
-        //    return result.Contains("mp3");
-        //}
+        /// <summary>
+        /// 检验 Mp3 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsMp3(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "mp3" });
+            return result.Contains("mp3");
+        }
 
-        ///// <summary>
-        ///// 检验 Wma 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsWma(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "wma" });
-        //    return result.Contains("wma");
-        //}
+        /// <summary>
+        /// 检验 Wma 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsWma(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "wma" });
+            return result.Contains("wma");
+        }
 
-        ///// <summary>
-        ///// 检验 Flac 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsFlac(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "flac" });
-        //    return result.Contains("flac");
-        //}
+        /// <summary>
+        /// 检验 Flac 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsFlac(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "flac" });
+            return result.Contains("flac");
+        }
 
-        ///// <summary>
-        ///// 检验 Ogg、Oga、Ogv 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsOgx(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "ogx" });
-        //    return result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv");
-        //}
+        /// <summary>
+        /// 检验 Ogg、Oga、Ogv 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsOgx(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "ogx" });
+            return result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv");
+        }
 
-        ///// <summary>
-        ///// 检验 Mid、Midi 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsMidi(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "mid" });
-        //    return result.Contains("mid") || result.Contains("midi");
-        //}
+        /// <summary>
+        /// 检验 Mid、Midi 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsMidi(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "mid" });
+            return result.Contains("mid") || result.Contains("midi");
+        }
 
-        ///// <summary>
-        ///// 检验 Audio 文件
-        ///// </summary>
-        ///// <param name="source">数据源</param>
-        ///// <returns></returns>
-        //public static bool IsAudio(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "audio" });
-        //    return result.Contains("mp3") || result.Contains("wma") || result.Contains("flac") || result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv") || result.Contains("mid") || result.Contains("midi");
-        //}
+        /// <summary>
+        /// 检验 Audio 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsAudio(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "audio" });
+            return result.Contains("mp3") || result.Contains("wma") || result.Contains("flac") || result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv") || result.Contains("mid") || result.Contains("midi");
+        }
 
         #endregion
 
         #region Video
 
-        //public static bool IsMp4(this byte[] source)
-        //{
-        //    var result = SnifferFile(source, new[] { "mp4" });
-        //    return result.Contains("mp4");
-        //}
+        /// <summary>
+        /// 检验 AVI 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsAvi(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "avi" });
+            return result.Contains("avi");
+        }
+
+        /// <summary>
+        /// 检验 Mp4 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsMp4(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "mp4" });
+            return result.Contains("mp4");
+        }
+
+        /// <summary>
+        /// 检验 Rmvb 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsRmvb(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "rmvb" });
+            return result.Contains("rmvb");
+        }
+
+        /// <summary>
+        /// 检验 Mkv 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsMkv(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "mkv" });
+            return result.Contains("mkv");
+        }
+
+        /// <summary>
+        /// 检验 Ts 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsTs(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "ts" });
+            return result.Contains("ts");
+        }
+
+        /// <summary>
+        /// 检验 Video 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsVideo(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "video" });
+            return result.Contains("avi") || result.Contains("mp4") || result.Contains("rmvb") || result.Contains("mkv") || result.Contains("ts");
+        }
 
         #endregion
 
         #region CompressFiles
 
+        /// <summary>
+        /// 检验 Zip 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsZip(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "zip" });
+            return result.Contains("zip");
+        }
 
+        /// <summary>
+        /// 检验 Rar 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsRar(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "rar" });
+            return result.Contains("rar");
+        }
 
-        #endregion
+        /// <summary>
+        /// 检验 7z 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool Is7z(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "7z" });
+            return result.Contains("7z");
+        }
 
-        #region ExecutableFiles
-
-
+        /// <summary>
+        /// 检验 Compress 文件
+        /// </summary>
+        /// <param name="source">数据源</param>
+        /// <returns></returns>
+        public static bool IsCompress(this byte[] source)
+        {
+            var result = SnifferFile(source, new[] { "compress" });
+            return result.Contains("compress");
+        }
 
         #endregion
 
@@ -320,19 +416,21 @@ namespace AspNetCore.DynaX
 
                     #region Video
 
-
+                    if (currType == "avi") RecordAvi(fileRecords);
+                    if (currType == "mp4") RecordMp4(fileRecords);
+                    if (currType == "rmvb") RecordRmvb(fileRecords);
+                    if (currType == "mkv") RecordMkv(fileRecords);
+                    if (currType == "ts") RecordTs(fileRecords);
+                    if (currType == "video") RecordVideo(fileRecords);
 
                     #endregion
 
                     #region CompressFiles
 
-
-
-                    #endregion
-
-                    #region ExecutableFiles
-
-
+                    if (currType == "zip") RecordZip(fileRecords);
+                    if (currType == "rar") RecordRar(fileRecords);
+                    if (currType == "7z") Record7Z(fileRecords);
+                    if (currType == "compress") RecordCompress(fileRecords);
 
                     #endregion
 
@@ -422,7 +520,7 @@ namespace AspNetCore.DynaX
             /// <param name="records">文件类型集合</param>
             public static void RecordJpg(ICollection<Record> records)
             {
-                records.Add(new Record("jpg", "ff,d8,ff,db"));
+                records.Add(new Record("jpg", "FF,D8,FF,DB"));
                 records.Add(new Record("jpg", "FF D8 FF E0 ?? ?? 4A 46 49 46 00 01"));
                 records.Add(new Record("jpg", "FF D8 FF E1 ?? ?? 45 78 69 66 00 00"));
             }
@@ -558,25 +656,107 @@ namespace AspNetCore.DynaX
             #region Video
 
             /// <summary>
+            /// 配置 AVI
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordAvi(ICollection<Record> records)
+            {
+                records.Add(new Record("avi", "52 49 46 46"));
+            }
+
+            /// <summary>
             /// 配置 MP4
             /// </summary>
             /// <param name="records">文件类型集合</param>
             public static void RecordMp4(ICollection<Record> records)
             {
-                records.Add(new Record("mp4", "82 73 70 70"));
+                records.Add(new Record("mp4", "00 00 00 ?? 66 74 79 70 ?? ?? ?? ?? 00 00 00 01 69 73 6F 6D"));
+            }
+
+            /// <summary>
+            /// 配置 RMVB
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordRmvb(ICollection<Record> records)
+            {
+                records.Add(new Record("rmvb", "2E 52 4D 46"));
+            }
+
+            /// <summary>
+            /// 配置 MKV
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordMkv(ICollection<Record> records)
+            {
+                records.Add(new Record("mkv", "1A 45 DF A3"));
+            }
+
+            /// <summary>
+            /// 配置 TS
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordTs(ICollection<Record> records)
+            {
+                records.Add(new Record("ts", "47 40 11 10"));
+            }
+
+            /// <summary>
+            /// 配置 Video
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordVideo(ICollection<Record> records)
+            {
+                RecordAvi(records);
+                RecordMp4(records);
+                RecordRmvb(records);
+                RecordMkv(records);
+                RecordTs(records);
             }
 
             #endregion
 
             #region CompressFiles
 
+            /// <summary>
+            /// 配置 Zip
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordZip(ICollection<Record> records)
+            {
+                records.Add(new Record("zip", "50,4b,03,04"));
+                records.Add(new Record("zip", "50,4b,05,06"));
+                records.Add(new Record("zip", "50,4b,07,08"));
+            }
 
+            /// <summary>
+            /// 配置 Rar
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordRar(ICollection<Record> records)
+            {
+                records.Add(new Record("rar", "52,61,72,21,1a,07,00"));
+                records.Add(new Record("rar", "52,61,72,21,1a,07,01,00"));
+            }
 
-            #endregion
+            /// <summary>
+            /// 配置 7z
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void Record7Z(ICollection<Record> records)
+            {
+                records.Add(new Record("7z", "37 7A BC AF 27 1C"));
+            }
 
-            #region ExecutableFiles
-
-
+            /// <summary>
+            /// 配置 Compress
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordCompress(ICollection<Record> records)
+            {
+                RecordZip(records);
+                RecordRar(records);
+                Record7Z(records);
+            }
 
             #endregion
         }

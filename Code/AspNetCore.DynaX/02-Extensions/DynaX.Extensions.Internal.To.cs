@@ -76,7 +76,41 @@ namespace AspNetCore.DynaX
         /// <returns></returns>
         public static int[] ToInts(this byte[] source)
         {
-            return source.Select(b => (int) b).ToArray();
+            return source.Select(b => (int)b).ToArray();
+        }
+
+        /// <summary>
+        /// int[] 转 byte[]
+        /// </summary>
+        /// <param name="source">数据来源</param>
+        /// <returns></returns>
+        public static byte[] ToBytes(this int[] source)
+        {
+            return source.Select(c => (byte)(c - '0')).ToArray();
+        }
+
+        /// <summary>
+        /// byte[] 转 Hex
+        /// </summary>
+        /// <param name="source">数据流</param>
+        /// <returns></returns>
+        public static string ToHexStr(this byte[] source)
+        {
+            return BitConverter.ToString(source).Replace("-", " ");
+        }
+
+        /// <summary>
+        /// hex string 转 byte[]
+        /// </summary>
+        /// <param name="source">数据来源</param>
+        /// <param name="separator">分隔符</param>
+        /// <returns></returns>
+        public static byte[] ToBytes(this string source, string separator)
+        {
+            return Enumerable.Range(0, source.Length)
+                .Where(x => x % 2 == 0)
+                .Select(x => Convert.ToByte(source.Substring(x, 2), 16))
+                .ToArray();
         }
 
         /// <summary>
@@ -90,28 +124,6 @@ namespace AspNetCore.DynaX
         }
 
         /// <summary>
-        /// byte[] 转 string
-        /// </summary>
-        /// <param name="source">数据流</param>
-        /// <param name="separator">分隔符</param>
-        /// <returns></returns>
-        public static string ToStr(this byte[] source, string separator = " ")
-        {
-            return string.Join(separator, ToStrs(source));
-        }
-
-        /// <summary>
-        /// string 转 byte[]
-        /// </summary>
-        /// <param name="source">数据来源</param>
-        /// <param name="separator">分隔符</param>
-        /// <returns></returns>
-        public static byte[] ToBytes(this string source, string separator)
-        {
-            return ToBytes(source.Split(separator));
-        }
-
-        /// <summary>
         /// string[] 转 byte[]
         /// </summary>
         /// <param name="source">数据来源</param>
@@ -119,16 +131,6 @@ namespace AspNetCore.DynaX
         public static byte[] ToBytes(this string[] source)
         {
             return source.Select(c => (byte)(c.ToInt() - '0')).ToArray();
-        }
-
-        /// <summary>
-        /// int[] 转 byte[]
-        /// </summary>
-        /// <param name="source">数据来源</param>
-        /// <returns></returns>
-        public static byte[] ToBytes(this int[] source)
-        {
-            return source.Select(c => (byte) (c - '0')).ToArray();
         }
     }
 }
