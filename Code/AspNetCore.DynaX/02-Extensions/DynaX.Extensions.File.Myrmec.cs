@@ -175,77 +175,81 @@ namespace AspNetCore.DynaX
 
         #region Audio
 
-        /// <summary>
-        /// 检验 Mp3 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsMp3(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "mp3" });
-            return result.Contains("mp3");
-        }
+        ///// <summary>
+        ///// 检验 Mp3 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsMp3(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "mp3" });
+        //    return result.Contains("mp3");
+        //}
 
-        /// <summary>
-        /// 检验 Wma 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsWma(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "wma" });
-            return result.Contains("wma");
-        }
+        ///// <summary>
+        ///// 检验 Wma 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsWma(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "wma" });
+        //    return result.Contains("wma");
+        //}
 
-        /// <summary>
-        /// 检验 Flac 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsFlac(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "flac" });
-            return result.Contains("flac");
-        }
+        ///// <summary>
+        ///// 检验 Flac 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsFlac(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "flac" });
+        //    return result.Contains("flac");
+        //}
 
-        /// <summary>
-        /// 检验 Ogg、Oga、Ogv 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsOgx(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "ogx" });
-            return result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv");
-        }
+        ///// <summary>
+        ///// 检验 Ogg、Oga、Ogv 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsOgx(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "ogx" });
+        //    return result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv");
+        //}
 
-        /// <summary>
-        /// 检验 Mid、Midi 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsMidi(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "mid" });
-            return result.Contains("mid") || result.Contains("midi");
-        }
+        ///// <summary>
+        ///// 检验 Mid、Midi 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsMidi(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "mid" });
+        //    return result.Contains("mid") || result.Contains("midi");
+        //}
 
-        /// <summary>
-        /// 检验 Audio 文件
-        /// </summary>
-        /// <param name="source">数据源</param>
-        /// <returns></returns>
-        public static bool IsAudio(this byte[] source)
-        {
-            var result = SnifferFile(source, new[] { "audio" });
-            return result.Contains("mp3") || result.Contains("wma") || result.Contains("flac") || result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv") || result.Contains("mid") || result.Contains("midi");
-        }
+        ///// <summary>
+        ///// 检验 Audio 文件
+        ///// </summary>
+        ///// <param name="source">数据源</param>
+        ///// <returns></returns>
+        //public static bool IsAudio(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "audio" });
+        //    return result.Contains("mp3") || result.Contains("wma") || result.Contains("flac") || result.Contains("ogg") || result.Contains("oga") || result.Contains("ogv") || result.Contains("mid") || result.Contains("midi");
+        //}
 
         #endregion
 
         #region Video
 
-
+        //public static bool IsMp4(this byte[] source)
+        //{
+        //    var result = SnifferFile(source, new[] { "mp4" });
+        //    return result.Contains("mp4");
+        //}
 
         #endregion
 
@@ -497,6 +501,7 @@ namespace AspNetCore.DynaX
             {
                 records.Add(new Record("mp3", "FF FB"));
                 records.Add(new Record("mp3", "49 44 33"));
+                records.Add(new Record("mp3", "73 68 51 03"));
             }
 
             /// <summary>
@@ -552,7 +557,14 @@ namespace AspNetCore.DynaX
 
             #region Video
 
-
+            /// <summary>
+            /// 配置 MP4
+            /// </summary>
+            /// <param name="records">文件类型集合</param>
+            public static void RecordMp4(ICollection<Record> records)
+            {
+                records.Add(new Record("mp4", "82 73 70 70"));
+            }
 
             #endregion
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace AspNetCore.DynaX.Logs.Web.Models
 {
     public class ErrorViewModel

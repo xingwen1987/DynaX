@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-namespace AspNetCore.DynaX
+﻿namespace AspNetCore.DynaX
 {
     /// <summary>
     /// DynaX 工具集合

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspNetCore.DynaX.UnitOfWorks.Web.Models
 {
