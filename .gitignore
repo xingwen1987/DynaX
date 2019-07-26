@@ -20,3 +20,6 @@
 /Code/AspNetCore.DynaX/bin/Release/
 /Code/AspNetCore.DynaX.Myrmec/obj/Release
 /Code/AspNetCore.DynaX.Myrmec/bin/Release
+*.user
+*.exe
+*.pdb
