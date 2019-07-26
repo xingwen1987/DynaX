@@ -48,22 +48,20 @@ namespace AspNetCore.DynaX
             /// </summary>
             /// <param name="dataBaseType">数据库类型</param>
             /// <param name="connectionString">连接字符串</param>
-            /// <param name="checkDatabase">检查数据库</param>
             /// <returns></returns>
-            public static async Task<T> CreateDbContext<T>(DataBaseType dataBaseType, string connectionString, bool checkDatabase) where T : DbContext
+            public static async Task<T> CreateDbContext<T>(DataBaseType dataBaseType, string connectionString) where T : DbContext
             {
                 if (string.IsNullOrEmpty(connectionString)) throw new ArgumentNullException("数据库连接字符串不能为 Null。");
                 var dataBaseInfo = new DataBaseInfo { Type = dataBaseType, ConnnectionString = connectionString };
-                return await CreateDbContext<T>(dataBaseInfo, checkDatabase);
+                return await CreateDbContext<T>(dataBaseInfo);
             }
 
             /// <summary>
             /// 创建对应的DbContext
             /// </summary>
             /// <param name="dataBaseInfo">数据库信息</param>
-            /// <param name="checkDatabase">检查数据库</param>
             /// <returns></returns>
-            public static async Task<T> CreateDbContext<T>(DataBaseInfo dataBaseInfo, bool checkDatabase) where T : DbContext
+            public static async Task<T> CreateDbContext<T>(DataBaseInfo dataBaseInfo) where T : DbContext
             {
                 var dbConnectionString = CreateConnectionString(dataBaseInfo);
                 var optionsBuilder = new DbContextOptionsBuilder<T>();
@@ -77,11 +75,7 @@ namespace AspNetCore.DynaX
                     default: break;
                 }
                 var dbContext = Utils.CreateInstance<T>(optionsBuilder.Options);
-                if (checkDatabase)
-                {
-                    await dbContext.Database.EnsureCreatedAsync();
-                }
-                dbContext.Database.SetCommandTimeout(0);
+                await dbContext.Database.EnsureCreatedAsync();
                 return dbContext;
             }
         }
