@@ -1,4 +1,5 @@
-﻿using AspectCore.Extensions.Reflection;
+﻿using System;
+using AspectCore.Extensions.Reflection;
 
 namespace AspNetCore.DynaX
 {
@@ -21,8 +22,7 @@ namespace AspNetCore.DynaX
             public static T CreateInstance<T>(params object[] args) where T : class
             {
                 var constructorInfo = typeof(T).GetConstructor(Types.Of(args));
-                return (T)constructorInfo?.GetReflector().Invoke(args);
-                //return (T)Activator.CreateInstance(typeof(T));
+                return constructorInfo == null ? (T) Activator.CreateInstance(typeof(T), args) : (T) constructorInfo.GetReflector().Invoke(args);
             }
         }
     }

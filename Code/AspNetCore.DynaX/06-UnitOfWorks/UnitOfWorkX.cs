@@ -24,16 +24,16 @@ namespace AspNetCore.DynaX
             private Dictionary<Type, object> _repositoryDir;
             private readonly TContext _dbContext;
 
-            public UnitOfWorkX(DataBaseType dataBaseType, string connectionString)
+            public UnitOfWorkX(DataBaseType dataBaseType, string connectionString, bool checkDatabase = true)
             {
-                _dbContext = DbContexts.CreateDbContext<TContext>(GetDataBaseInfo(dataBaseType, connectionString)).Result;
+                _dbContext = DbContexts.CreateDbContext<TContext>(GetDataBaseInfo(dataBaseType, connectionString), checkDatabase).Result;
                 _dbUnitOfWork = new UnitOfWork<TContext>(_dbContext);
                 _dbContextTransaction = _dbContext.Database.BeginTransaction();
             }
 
-            public UnitOfWorkX(DataBaseInfo dataBaseInfo)
+            public UnitOfWorkX(DataBaseInfo dataBaseInfo, bool checkDatabase = true)
             {
-                _dbContext = DbContexts.CreateDbContext<TContext>(dataBaseInfo).Result;
+                _dbContext = DbContexts.CreateDbContext<TContext>(dataBaseInfo, checkDatabase).Result;
                 _dbUnitOfWork = new UnitOfWork<TContext>(_dbContext);
                 _dbContextTransaction = _dbContext.Database.BeginTransaction();
             }
@@ -60,18 +60,18 @@ namespace AspNetCore.DynaX
             /// </summary>
             /// <param name="dataBaseType">数据库类型</param>
             /// <param name="connectionString">连接字符串</param>
-            public UnitOfWorkX<TContext> ChangeDataBase(DataBaseType dataBaseType, string connectionString)
+            public UnitOfWorkX<TContext> ChangeDataBase(DataBaseType dataBaseType, string connectionString, bool checkDatabase = true)
             {
-                return ChangeDataBase(GetDataBaseInfo(dataBaseType, connectionString));
+                return ChangeDataBase(GetDataBaseInfo(dataBaseType, connectionString), checkDatabase);
             }
 
             /// <summary>
             /// 修改数据库对象
             /// </summary>
             /// <param name="dataBaseInfo">数据库信息</param>
-            public UnitOfWorkX<TContext> ChangeDataBase(DataBaseInfo dataBaseInfo)
+            public UnitOfWorkX<TContext> ChangeDataBase(DataBaseInfo dataBaseInfo, bool checkDatabase = true)
             {
-                return new UnitOfWorkX<TContext>(dataBaseInfo);
+                return new UnitOfWorkX<TContext>(dataBaseInfo, checkDatabase);
             }
 
             #endregion

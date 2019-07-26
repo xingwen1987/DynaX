@@ -19,13 +19,15 @@ namespace AspNetCore.DynaX
             /// </summary>
             /// <param name="dataBaseType">数据库类型</param>
             /// <param name="connectionObject">连接字符串对象</param>
-            UnitOfWorkX<TContext> ChangeDataBase(DataBaseType dataBaseType, string connectionObject);
+            /// <param name="checkDatabase">检查数据库</param>
+            UnitOfWorkX<TContext> ChangeDataBase(DataBaseType dataBaseType, string connectionObject, bool checkDatabase = true);
 
             /// <summary>
             /// 修改数据库对象
             /// </summary>
             /// <param name="dataBaseInfo">数据库信息</param>
-            UnitOfWorkX<TContext> ChangeDataBase(DynaX.DataBaseInfo dataBaseInfo);
+            /// <param name="checkDatabase">检查数据库</param>
+            UnitOfWorkX<TContext> ChangeDataBase(DynaX.DataBaseInfo dataBaseInfo, bool checkDatabase = true);
 
             /// <summary>
             /// 获取当前数据库下的仓储
